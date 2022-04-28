@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>Timer Set</title>
+        <meta charset="utf-8">
+        <meta content=“width=device-width, initial-scale=1, maximum-scale=1” name=“viewport”>
+        <meta name="description" content="Timer para exercício de JavaScript">
+        <meta name="keywords" content="timer, exercício, JavaScript">
+        <meta name="robots" content="index">
+        <link rel="stylesheet" type="text/css" href="stile.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+      </head>
+
+      <body>        
+
+        <input type="number" class="define_tempo" id="horas" placeholder="00:">
+        <input type="number" class="define_tempo" id="minutos" placeholder="25:">
+        <input type="number" class="define_tempo" id="segundos" placeholder="00">
+        <input type="button" id="envia" value="Enviar" onclick="envia()">
+
+        <p id="display_cronometro">01:01:01</p>
+
+        <input type="button" class="funcoes_cronometro" id="inicia" onclick="start()" value="Iniciar">
+        <input type="button" class="funcoes_cronometro" id="pausa" onclick="pause()" value="Pausar">
+        <input type="button" class="funcoes_cronometro" id="continua" onclick="cont()" value="Continuar">
+        <input type="button" class="funcoes_cronometro" id="reseta" onclick="reset()" value="Resetar">
+        <script src= "script.js"></script>
+      </body>
+
+</html>

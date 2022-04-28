@@ -1,0 +1,53 @@
+html{
+	background-color: rgb(14, 14, 14);
+} 
+
+body{
+	text-align: center;
+}
+
+.define_tempo{
+	width: 45px;
+	background: rgb(92, 92, 92);
+	color:#ff7b00;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 15pt;
+	border-color: transparent;
+}
+
+#envia{
+	width: 100px;
+	background-color: #ff7b00;
+	color: rgb(29, 29, 29);
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 15pt;
+	border-color: transparent;
+}
+
+.funcoes_cronometro{	
+	width: 100px;
+	background: rgb(255, 123, 0);
+	color:rgb(29, 29, 29);
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 15pt;
+	border-color: transparent;
+}
+
+.funcoes_cronometro:active{
+	background: gray;
+}
+
+#envia:active{
+	background: gray;
+}
+
+
+#display_cronometro{
+	width:150px;
+	text-align: center;
+	color: #FFF;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 30pt;
+	margin: 0 auto;
+	padding: 20px;
+}
