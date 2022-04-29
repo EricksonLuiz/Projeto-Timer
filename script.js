@@ -1,16 +1,18 @@
-const _hou = document.getElementById('horas'),
-      _min = document.getElementById('minutos'),
-      _sec = document.getElementById('segundos');
-     
+const _hou = document.getElementById("horas"),
+    _min = document.getElementById("minutos"),
+    _sec = document.getElementById("segundos");
 
+
+var hou = null,
+    min  = null,
+    sec  = null;
 /*var input = document.querySelector('horas');
 var input_valor = input.value;*/
 
 let tempo = 100;
-let cron = hou + min + sec;
+// let cron = hou + min + sec;
 
-
-var input_reset = document.getElementById('reseta');
+var input_reset = document.getElementById("reseta");
 var input_reset_value = input_reset.value;
 
 var valor_hora = [];
@@ -23,66 +25,97 @@ btn.addEventListener("click", function(e)){
     let value = name.value;
 }*/
 
-
-function start(){
-    var hou = parseInt(_hou.value),
-        min = parseInt(_min.value),
-        sec = parseInt(_sec.value);
+function start() {
+    debugger;
     console.log(1);
-    cron = setInterval(() => {watch(); }, tempo);
+    cron = setInterval(() => {
+        watch();
+    }, tempo);
 }
 
-function pause(){
+function pause() {
     console.log(2);
     clearInterval(cron);
 }
 
-function cont(){
+function cont() {
     console.log(3);
-    cron = setInterval(() => {watch(); }, tempo);
-
+    cron = setInterval(() => {
+        watch();
+    }, tempo);
 }
 
-function reset(){
-    console.log(4);
-
-    valor_hora = [];
-    document.getElementById("display_cronometro").innerText = valor_hora;
-    clearInterval(cron);
-    
-}
-
-
-function envia(){
+function reset() {
     debugger;
-    const hou_valor = _hou.value;
-    const min_valor = _min.value;
-    const sec_valor = _sec.value;
-    document.getElementById("display_cronometro").innerText = hou_valor + ':' + min_valor + ':' + sec_valor;
-    document.getElementById('horas').innerText = hou_valor;
-    document.getElementById('minutos').innerText = min_valor;
-    document.getElementById('segundos').innerText = sec_valor;
+    console.log(4);
+    document.getElementById("display_cronometro").innerText = " 00:00:00";
+    _hou.value = "";
+    _min.value = "";
+    _sec.value = "";
+    hou = null;
+    min = null;
+    sec = null;
+    clearInterval(cron);
 }
 
+function envia() {
 
+    let hou_valor = parseInt(_hou.value);
+    let min_valor = parseInt(_min.value);
+    let sec_valor = parseInt(_sec.value);
 
-function watch(){
-    sec --;
+    hou = hou_valor,
+        min = min_valor,
+        sec = sec_valor;
 
-    if(sec == 00){
-    sec = 60;
-    min --;
-    
-    if(min == 00){
-    min = 60;
-    hou--
+    if (hou_valor < 10) {
+        if (hou_valor == "") {
+            hou_valor = "00";
+        } else {
+            hou_valor = `0${hou_valor}`;
+        }
     }
+    if (min_valor < 10) {
+        if (min_valor == "") {
+            min_valor = "00"
+        } else {
+            min_valor = `0${min_valor}`;
+        }
+    }
+    if (sec_valor < 10) {
+        if (sec_valor == "") {
+            sec_valor = "00"
+        } else {
+            sec_valor = `0${sec_valor}`;
+        }
+    }
+    document.getElementById("display_cronometro").innerText =
+        hou_valor + ":" + min_valor + ":" + sec_valor;
+
+}
+
+function watch() {
+    if(hou != null && min != null && sec != null){
+        sec--;
+
+    if (sec == 00) {
+        sec = 60;
+        min--;
+
+        if (min == 00) {
+            min = 60;
+            hou--;
+        }
     }
 
-    let format = (hou < 10 ? "0" + hou : hou) + ":" + (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec: sec);
-    document.getElementById('display_cronometro').innerText = format;
+    let format =
+        (hou < 10 ? "0" + hou : hou) +
+        ":" +
+        (min < 10 ? "0" + min : min) +
+        ":" +
+        (sec < 10 ? "0" + sec : sec);
+    document.getElementById("display_cronometro").innerText = format;
 
     console.log(sec, min, hou);
+    }
 }
-
-
